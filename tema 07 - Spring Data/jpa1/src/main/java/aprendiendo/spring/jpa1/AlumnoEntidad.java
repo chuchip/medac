@@ -1,23 +1,25 @@
 package aprendiendo.spring.jpa1;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
+@Entity(name="alumno")
 @Setter
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class AlumnoEntidad {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int id;
+    private int id;
 
-    String nombre;
+    @Column(name="name",length = 100,nullable = false)
+    private String nombre;
 
-    int edad;
+    private int edad;
 
-    String curso;
+    private String curso;
 }

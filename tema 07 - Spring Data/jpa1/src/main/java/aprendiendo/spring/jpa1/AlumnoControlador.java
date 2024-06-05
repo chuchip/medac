@@ -57,4 +57,22 @@ public class AlumnoControlador {
         return ResponseEntity.ok(alumnoRepositorio.save(alumnoEntidad));
     }
 
+    @GetMapping("/nombre/{nombre}")
+    public List<AlumnoEntidad> getAlumnosPorNombre(@PathVariable String nombre)
+    {
+        List<AlumnoEntidad> alunnos= alumnoRepositorio.buscaPorNombre(nombre);
+        return alunnos;
+    }
+    @GetMapping("/nombre_edad/{nombre}")
+    public List<Double> getAlumnosPorNombreNativo(@PathVariable String nombre)
+    {
+        List<Double> alunnos= alumnoRepositorio.buscaPorNombreNative(nombre);
+        return alunnos;
+    }
+    @GetMapping("/mayores")
+    public List<AlumnoDTO> getAlumnosMayoresEdad()
+    {
+        List<AlumnoDTO> alunnos= alumnoRepositorio.buscaMayoresDeEdad();
+        return alunnos;
+    }
 }
