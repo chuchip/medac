@@ -8,6 +8,9 @@ import java.util.List;
 @Repository
 public interface AlumnoRepositorio2 extends JpaRepository<AlumnoEntidad,Integer> {
 
-    List<AlumnoDTO> findByEdadGreaterThan18();
+    List<AlumnoDTO> findByEdadGreaterThan(int edad);
 
+    List <AlumnoEntidad> findByNombre(String nombre);
+
+    List<AlumnoEntidad> findByEdadGreaterThanEqualOrderByEdadDesc(int edad);
 }

@@ -15,22 +15,22 @@ public class AlumnoControlador2 {
     @Autowired
     AlumnoRepositorio2 alumnoRepositorio2;
 
-//    @GetMapping("/nombre/{nombre}")
-//    public List<AlumnoEntidad> getAlumnosPorNombre(@PathVariable String nombre)
-//    {
-//        List<AlumnoEntidad> alunnos= alumnoRepositorio.buscaPorNombre(nombre);
-//        return alunnos;
-//    }
-//    @GetMapping("/nombre_edad/{nombre}")
-//    public List<Double> getAlumnosPorNombreNativo(@PathVariable String nombre)
-//    {
-//        List<Double> alunnos= alumnoRepositorio.buscaPorNombreNative(nombre);
-//        return alunnos;
-//    }
     @GetMapping("/mayores")
     public List<AlumnoDTO> getAlumnosMayoresEdad()
     {
-        List<AlumnoDTO> alunnos= alumnoRepositorio2.findByEdadGreaterThan18();
+        List<AlumnoDTO> alunnos= alumnoRepositorio2.findByEdadGreaterThan(18);
+        return alunnos;
+    }
+    @GetMapping("/nombre")
+    public List<AlumnoEntidad> getAlumnosPorNombre(@RequestParam String nombre)
+    {
+        List<AlumnoEntidad> alunnos= alumnoRepositorio2.findByNombre(nombre);
+        return alunnos;
+    }
+    @GetMapping("/mayores/{edad}")
+    public List<AlumnoEntidad> getAlumnosMayoresDe(@PathVariable int edad)
+    {
+        List<AlumnoEntidad> alunnos= alumnoRepositorio2.findByEdadGreaterThanEqualOrderByEdadDesc(edad);
         return alunnos;
     }
 }

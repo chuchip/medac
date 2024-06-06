@@ -19,7 +19,7 @@ public class AlumnoEntidad {
     @Column(name="name",length = 100,nullable = false)
     private String nombre;
 
-    private int edad;
+    private Integer edad;
 
     private String curso;
 }
