@@ -3,6 +3,7 @@ package aprendiendo.spring.relaciones_jpa.entidades;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -17,10 +18,19 @@ public class Opinion {
     @ManyToOne
     Lector lector;
 
-    @ManyToMany
-    List<Libro> libros;
+    @ManyToOne
+    Libro libro;
+
     int nota;
 
-
-
+    @Override
+    public String toString() {
+        return "Opinion{" +
+                "id=" + id +
+                ", lector=" + lector.getNombre() +
+                ", Titulo libro=" + libro.getTitulo() +
+                ", Autor libro=" + libro.getAutor().getNombre() +
+                ", nota=" + nota +
+                '}';
+    }
 }

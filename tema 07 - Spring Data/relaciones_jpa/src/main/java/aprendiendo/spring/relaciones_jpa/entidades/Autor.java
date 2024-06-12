@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Setter
 @Getter
@@ -19,5 +22,7 @@ public class Autor {
     @JoinColumn(name = "libro_id")
     private Libro libro;
 
+    @ManyToMany(mappedBy = "autores")
+    private Set<Lector> lectores = new HashSet<>();
 }
 
