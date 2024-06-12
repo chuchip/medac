@@ -42,7 +42,6 @@ public class RelacionesJpaApplication {
 			libro.setAutor(autor);
 			autorRepository.save(autor);
 			libroRepository.save(libro);
-
 		};
 	}
 }
