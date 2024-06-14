@@ -37,7 +37,8 @@ public class RelacionesJpaApplication {
 	{
 		return (args) ->
 		{
-			autorService.iniciar();
+			Lector lector =autorService.insertar();
+			autorService.leer(lector);
 		};
 	}
 }

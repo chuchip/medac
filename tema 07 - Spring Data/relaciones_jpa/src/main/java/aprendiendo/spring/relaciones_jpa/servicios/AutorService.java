@@ -8,9 +8,9 @@ import aprendiendo.spring.relaciones_jpa.repositorios.AutorRepository;
 import aprendiendo.spring.relaciones_jpa.repositorios.LectorRepository;
 import aprendiendo.spring.relaciones_jpa.repositorios.LibroRepository;
 import aprendiendo.spring.relaciones_jpa.repositorios.OpinionRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -31,15 +31,20 @@ public class AutorService {
         autorRepository.save(autor);
         return autor;
     }
-    @Transactional
-    public void iniciar()
+    @Transactional(readOnly = true)
+    public void leer(Lector lector)
     {
-        Libro libro=addAutorYLibro();
-        Lector lector= addLectorOpinion(libro);
         lector =lectorepository.findById(lector.getId()).orElseThrow( () -> new RuntimeException("Lector no encontrado"));
         System.out.println("----------------------------------------- ");
         System.out.println("Lector: ");
         System.out.println(lector);
+    }
+    @Transactional
+    public Lector insertar()
+    {
+        Libro libro=addAutorYLibro();
+        Lector lector= addLectorOpinion(libro);
+        return lector;
     }
     Libro addAutorYLibro()
     {
