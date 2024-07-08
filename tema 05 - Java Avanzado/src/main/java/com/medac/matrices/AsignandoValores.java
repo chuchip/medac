@@ -8,6 +8,6 @@ public class AsignandoValores {
 
         matrizTexto[0]='a'; // Primer elemento
         matrizTexto[10]='b'; // Elemento numero 11
-        matrizTexto[50]='.'; // Elemento numero 50  no existe. Dara un error.
+        matrizTexto[-1]='.'; // Elemento numero 50  no existe. Dara un error.
     }
 }

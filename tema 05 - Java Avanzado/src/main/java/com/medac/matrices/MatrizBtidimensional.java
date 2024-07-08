@@ -6,6 +6,8 @@ public class MatrizBtidimensional {
 
         String[][] matrizTexto = new String[2][3]; // Se define una matriz de 5x3 elementos
 
+
+
         matrizTexto[0][0] = "0-0";
         matrizTexto[0][1] = "0-1";
 

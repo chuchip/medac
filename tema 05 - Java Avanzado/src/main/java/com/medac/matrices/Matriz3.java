@@ -23,7 +23,7 @@ public class Matriz3 {
         String[] matrizTextos= new String[5]; // Se define una matriz de 5 elementos
 
         matrizTextos[0]="Primer elemento";
-        matrizTextos[1]="null";
+        matrizTextos[1]="";
         matrizTextos[2]="Segundo elemento";
 
         for (int n=0;n<matrizTextos.length;n++)
