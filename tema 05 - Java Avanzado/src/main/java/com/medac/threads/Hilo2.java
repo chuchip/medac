@@ -23,6 +23,8 @@ class MiThread extends Thread
     {
         this.trabajo=trabajo;
     }
+
+    @Override
     public void run() {
         Thread.currentThread().setName("Hilo2");
         for (int n=0;n<10;n++)
