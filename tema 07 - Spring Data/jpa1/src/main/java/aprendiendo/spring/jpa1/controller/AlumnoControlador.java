@@ -1,8 +1,10 @@
-package aprendiendo.spring.jpa1;
+package aprendiendo.spring.jpa1.controller;
 
 
+import aprendiendo.spring.jpa1.dto.AlumnoDTO;
+import aprendiendo.spring.jpa1.entity.AlumnoEntidad;
+import aprendiendo.spring.jpa1.repository.AlumnoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,19 +14,21 @@ import java.util.Optional;
 @RestController
 @RequestMapping("alumno")
 public class AlumnoControlador {
-
     @Autowired
     AlumnoRepositorio alumnoRepositorio;
+
     @PostMapping
     public AlumnoEntidad insertarAlumno(@RequestBody AlumnoEntidad alumnoEntidad)
     {
         return alumnoRepositorio.save(alumnoEntidad);
     }
+
     @GetMapping
     public List<AlumnoEntidad> getAlumnos()
     {
         return alumnoRepositorio.findAll();
     }
+
     @GetMapping("/{id}")
     public ResponseEntity<AlumnoEntidad> getAlumno(@PathVariable int id)
     {

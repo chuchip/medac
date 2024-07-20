@@ -1,5 +1,7 @@
-package aprendiendo.spring.jpa1;
+package aprendiendo.spring.jpa1.repository;
 
+import aprendiendo.spring.jpa1.entity.AlumnoEntidad;
+import aprendiendo.spring.jpa1.dto.AlumnoDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -10,7 +12,7 @@ import java.util.List;
 @Repository
 public interface AlumnoRepositorio extends JpaRepository<AlumnoEntidad,Integer> {
 
-    @Query("SELECT new aprendiendo.spring.jpa1.AlumnoDTO(a.id,a.nombre, a.curso) FROM alumno a WHERE a.edad > 18")
+    @Query("SELECT new aprendiendo.spring.jpa1.dto.AlumnoDTO(a.id,a.nombre, a.curso) FROM alumno a WHERE a.edad > 18")
     List<AlumnoDTO> buscaMayoresDeEdad();
 
     @Query("SELECT a  FROM alumno a WHERE a.nombre = :nombre")

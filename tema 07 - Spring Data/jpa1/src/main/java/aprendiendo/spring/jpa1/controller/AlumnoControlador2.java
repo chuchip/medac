@@ -1,12 +1,13 @@
-package aprendiendo.spring.jpa1;
+package aprendiendo.spring.jpa1.controller;
 
 
+import aprendiendo.spring.jpa1.dto.AlumnoDTO;
+import aprendiendo.spring.jpa1.entity.AlumnoEntidad;
+import aprendiendo.spring.jpa1.repository.AlumnoRepositorio2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("alumno2")
@@ -16,9 +17,9 @@ public class AlumnoControlador2 {
     AlumnoRepositorio2 alumnoRepositorio2;
 
     @GetMapping("/mayores")
-    public List<AlumnoDTO> getAlumnosMayoresEdad()
+    public List<AlumnoEntidad> getAlumnosMayoresEdad()
     {
-        List<AlumnoDTO> alunnos= alumnoRepositorio2.findByEdadGreaterThan(18);
+        List<AlumnoEntidad> alunnos= alumnoRepositorio2.findByEdadGreaterThan(18);
         return alunnos;
     }
     @GetMapping("/nombre")

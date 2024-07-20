@@ -3,10 +3,10 @@ package com.medac.springweb.controlador;
 import com.medac.springweb.dto.Usuario;
 import org.springframework.web.bind.annotation.*;
 
-@RestController("path")
+@RestController
 public class ControladorPath {
 
-    @GetMapping("usuarios/{nombre}")
+    @GetMapping("usuarios/nombre/{nombre}")
     public String saluda(@PathVariable String nombre)
     {
         return "Hola "+nombre;
@@ -21,8 +21,14 @@ public class ControladorPath {
     {
         return "Usuarios leidos...";
     }
-    @GetMapping("/usuarios/{id}")
-    public Usuario obtenerUsuarioPorId(@PathVariable("id") Long id) {
+
+    /**
+     * Obtener usuario por id
+     * @param id
+     * @return
+     */
+    @GetMapping("/usuarios/{id}{nombre}")
+    public Usuario obtenerUsuarioPorId(@PathVariable("id") Long idh,@PathVariable String nombre) {
         return new Usuario("Jesus","Madrid",30);
     }
     // Estas dos funciones son iguales

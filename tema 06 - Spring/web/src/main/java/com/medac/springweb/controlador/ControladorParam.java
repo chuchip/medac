@@ -11,8 +11,9 @@ public class ControladorParam {
     {
         return "Hola aquel cuyo nombre es "+nombre;
     }
+
     @GetMapping("/ciudad")
-    public String saluda2(@RequestParam(name ="ciudad",required=false,defaultValue = "Madrid") String var1)
+    public String saluda2(@RequestParam(name ="ciudad") String var1)
     {
         return "Hola aquel que vive en la ciudad "+var1;
     }
@@ -22,5 +23,7 @@ public class ControladorParam {
     {
         return "Hola "+ profesion+ "  que vives en la ciudad "+var1;
     }
+
+
 }
 

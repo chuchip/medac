@@ -34,7 +34,7 @@ public class Stream1 {
 
         System.out.println("\n-----------------------------------\nUtilizando streams ...");
 
-        primerasLetras = nombres.stream()
+        primerasLetras = nombres.parallelStream()
                 .filter( nombre -> nombre.toUpperCase().contains("A"))
                 .map(nombre -> nombre.charAt(0))
                 .collect(Collectors.toList());

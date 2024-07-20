@@ -1,4 +1,4 @@
-package aprendiendo.spring.jpa1;
+package aprendiendo.spring.jpa1.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

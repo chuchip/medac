@@ -1,5 +1,7 @@
 package aprendiendo.spring.jpa1;
 
+import aprendiendo.spring.jpa1.entity.AlumnoEntidad;
+import aprendiendo.spring.jpa1.repository.AlumnoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,7 +12,7 @@ import org.springframework.context.annotation.Bean;
 public class Jpa1Application {
 
 	@Autowired
-	AlumnoRepositorio	 alumnoRepositorio;
+	AlumnoRepositorio alumnoRepositorio;
 	public static void main(String[] args) {
 		SpringApplication.run(Jpa1Application.class, args);
 	}
