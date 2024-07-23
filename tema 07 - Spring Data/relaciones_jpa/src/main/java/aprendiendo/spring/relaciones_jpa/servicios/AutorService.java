@@ -46,7 +46,7 @@ public class AutorService {
     {
 
         Libro libro=addAutorYLibro("Jesús","Perez");
-        Libro libro2=addAutorYLibro("Maria","Calvo");
+        addAutorYLibro("Maria","Calvo");
         Lector lector= addLectorOpinion(libro);
         return lector;
     }
