@@ -7,11 +7,11 @@ import lombok.ToString;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 @Setter
 @Getter
-@ToString
 public class Lector {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,4 +29,14 @@ public class Lector {
     private Set<Autor> autores;
 
     String nombre;
+
+    @Override
+    public String toString() {
+        return "Lector{" +
+                "\nid=" + id +
+                ",\n opinionList=" + opinionList +
+                ",\n autores= {" + autores.stream().map(Autor::getNombre).collect(Collectors.joining(";"))+"}"+
+                ",\n nombre='" + nombre + '\'' +
+                "}\n";
+    }
 }

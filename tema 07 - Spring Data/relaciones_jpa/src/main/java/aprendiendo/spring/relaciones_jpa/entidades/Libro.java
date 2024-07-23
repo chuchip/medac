@@ -17,4 +17,14 @@ public class Libro {
 
     @OneToOne(mappedBy = "libro")
     private Autor autor;
+
+    @Override
+    public String toString() {
+        return "Libro{" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", genero='" + genero + '\'' +
+                ", autor=" + autor.getNombre() +
+                '}';
+    }
 }

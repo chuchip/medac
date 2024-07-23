@@ -38,6 +38,7 @@ public class RelacionesJpaApplication {
 		return (args) ->
 		{
 			Lector lector =autorService.insertar();
+			autorService.addLectorAutor(lector);
 			autorService.leer(lector);
 		};
 	}

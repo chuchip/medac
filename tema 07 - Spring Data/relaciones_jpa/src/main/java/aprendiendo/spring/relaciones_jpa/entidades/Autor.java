@@ -24,5 +24,16 @@ public class Autor {
 
     @ManyToMany(mappedBy = "autores")
     private Set<Lector> lectores = new HashSet<>();
+
+    @Override
+    public String toString() {
+        return "Autor{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", libro=" + libro.getTitulo() +
+                ", lectores=" + lectores +
+                '}';
+    }
 }
 

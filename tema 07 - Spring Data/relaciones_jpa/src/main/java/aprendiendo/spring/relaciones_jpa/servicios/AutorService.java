@@ -12,7 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class AutorService {
@@ -42,17 +44,19 @@ public class AutorService {
     @Transactional
     public Lector insertar()
     {
-        Libro libro=addAutorYLibro();
+
+        Libro libro=addAutorYLibro("Jesús","Perez");
+        Libro libro2=addAutorYLibro("Maria","Calvo");
         Lector lector= addLectorOpinion(libro);
         return lector;
     }
-    Libro addAutorYLibro()
+    Libro addAutorYLibro(String nombre, String apellido)
     {
         Autor autor= new Autor();
-        autor.setNombre("Jesús");
-        autor.setApellido("Perez");
+        autor.setNombre(nombre);
+        autor.setApellido(apellido);
         Libro libro=new Libro();
-        libro.setTitulo("Libro de Pepe");
+        libro.setTitulo("Libro de "+nombre);
         libro.setGenero("Autobiografia");
 
         autor.setLibro(libro);
@@ -80,5 +84,18 @@ public class AutorService {
         lectorepository.save(lector);
         opinionRepository.saveAll(opinionList);
         return lector;
+    }
+    public void addLectorAutor(Lector lector)
+    {
+        List<Autor> autorList=autorRepository.findAll();
+        Set<Autor> autorSet = new HashSet<>(autorList);
+        Lector lector2=new Lector();
+        lector2.setNombre("Lector 2");
+        lector2.setAutores(autorSet);
+        lector.setAutores(autorSet);
+        autorList.forEach(autor -> autor.setLectores(Set.of(lector,lector2)));
+        lectorepository.save(lector);
+        lectorepository.save(lector2);
+        autorRepository.saveAll(autorSet);
     }
 }

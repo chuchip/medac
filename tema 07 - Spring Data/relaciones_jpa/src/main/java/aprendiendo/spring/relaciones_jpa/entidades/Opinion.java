@@ -25,12 +25,12 @@ public class Opinion {
 
     @Override
     public String toString() {
-        return "Opinion{" +
+        return "Opinion {\n" +
                 "id=" + id +
-                ", lector=" + lector.getNombre() +
-                ", Titulo libro=" + libro.getTitulo() +
-                ", Autor libro=" + libro.getAutor().getNombre() +
-                ", nota=" + nota +
-                '}';
+                ",\n lector=" + lector.getNombre() +
+                ",\n Titulo libro=" + libro.getTitulo() +
+                ",\n Autor libro=" + libro.getAutor().getNombre() +
+                ",\n nota=" + nota +
+                "\n}";
     }
 }
